@@ -1,0 +1,111 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/diamond-zag.png');
+    background-attachment: fixed;
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.portada {
+    height: 400px;
+    font-family: 'Gotu', sans-serif;
+}
+
+.chat {
+    overflow: auto;
+    border-radius: 5px;
+    height: 439px;
+}
+
+.btn-login-register {
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.chat::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+
+.border {
+    border-radius: 5px;
+}
+
+.btn-profile,
+.btn-setting {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.btn-setting {
+    color: white;
+}
+
+.btn-profile img {
+    border-radius: 50%;
+}
+
+.items {
+    height: 400px;
+}
+
+.title-carousel {
+    width: 100%;
+    font-family: 'Gotu', sans-serif;
+    font-size: 40px;
+}
+
+.typed,
+.title-portada {
+    font-size: 50px;
+}
+
+.chat {
+    font-size: 40px;
+}
+
+.form-register {
+    overflow: auto;
+}
+
+@media (max-width:1400px) {
+    .typed,
+    .title-portada {
+        font-size: 4rem;
+    }
+    .title-chat {
+        font-size: 3.7rem;
+    }
+}
+
+@media (max-width:1300px) {
+    .typed,
+    .title-portada {
+        font-size: 2rem;
+    }
+    .title-chat {
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width:600px) {
+    .typed,
+    .title-portada {
+        font-size: 1rem;
+    }
+    .title-chat {
+        font-size: 2rem;
+    }
+    .portada {
+        height: 200px;
+    }
+}

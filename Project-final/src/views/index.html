@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Image Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- barra de navegacion -->
+    <div class="container-fluid">
+        <nav class="row navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand" href="/">SPhotos</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId" align="center">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex align-items-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <!-- required bootstrap js -->
+                    <a type="button" name="commit" class="btn-login-register btn-sm text-white" data-toggle="modal" data-target="#login">
+                      Login/Signup
+                    </a>
+                </ul>
+                <!-- aqui se agregara el munu del usuario -->
+                <div class="btn-group align-items-center my-2">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Welcome <p class="usuario"></p> </a>
+                        <a class="dropdown-item btnexit" href="#">Exit</a>
+                    </div>
+                    <a type="button" class="pr-3 btn-setting text-white dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </a>
+                    <a type="button" class="btn-profile"><img class="border border-white" src="https://img.icons8.com/officel/50/000000/user.png" alt="" height="50px" width="50px"></a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </nav>
+
+        <!-- Login and Register -->
+        <div class="modal fade" id="login" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <form class="modal-body">
+                        <div class="alert-login">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-envelope"></i>
+                                 </span>
+                            </div>
+                            <input type="email" id="login-email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" id="login-password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                        </div>
+                        <input type="submit" name="commit" class="btn btn-primary btn-lg btn-login btn-block">
+                        <div class="text-center">
+                            <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#signup">Signup</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="signup" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Signup</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <form class="modal-body">
+                        <div class="alert p-0">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input type="email" class="form-control" name="email" id="email-register" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" autocomplete="off" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="password" id="password-register" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" autocomplete="off">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="passwordconfirm" id="password-confirm-register" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1" autocomplete="off">
+                        </div>
+                        <div class="custom-file mb-3">
+                            <input type="file" class="custom-file-input file-image" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <div class="row justify-content-center avatar-preview mb-3">
+                            <img src="" alt="">
+                        </div>
+                        <input type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-register" value="Signup">
+                        <div class="text-center">
+                            <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- mostrar los elemento del contenedor con id = 'cadena-texto'     -->
+        <div class="row portada justify-content-center align-items-center">
+            <p class="title-portada text-white">SAVE PHOTOS OF YOUR .
+                <p class="typed"></p>
+            </p>
+        </div>
+
+        <!-- espacio para el chat -->
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center py-5">
+                <form align="center" class="col-10">
+                    <div class="title-chat text-white">Chat</div>
+                    <input type="text" id="user" class="form-control my-5" required autofocus placeholder="Usuario" autocomplete="off">
+                    <input type="text" id="texto" class="form-control my-5" required placeholder="Escriba cualquier cosa" autocomplete="off">
+                    <input type="submit" class="btn btn-outline-info my-2">
+                </form>
+            </div>
+            <div class="chat col-12 col-md-6 pt-3" align="center">
+                {% for data in datos %}
+                <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="mr-auto">{{data.user}}</strong>
+                    </div>
+                    <div class="toast-body">
+                        {{data.texto}}
+                    </div>
+                </div>
+                {% endfor%}
+            </div>
+        </div>
+        <!-- colocando imagenes aleatorias al carousel -->
+        <p class="title-carousel text-center text-white">Store Your Photos Here</p>
+        <!-- required bootstrap js -->
+        <!-- add 'carousel-slider' snippet in css -->
+        <div id="demo" class="carousel slide row width" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner" style="height: 50%;">
+                <div class="carousel-item active">
+                    <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg" alt="" width="100%">
+                    <div class="carousel-caption">
+                        <h3>Title</h3>
+                        <p>Caption</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/08/01/00/08/pier-407252_960_720.jpg" alt="" width="100%">
+                    <div class="carousel-caption">
+                        <h3>Title</h3>
+                        <p>Caption</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/07/09/22/45/tree-838667_960_720.jpg" alt="" width="100%">
+                    <div class="carousel-caption">
+                        <h3>Title</h3>
+                        <p>Caption</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/typed.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/efect-typed.js"></script>
+    <script src="/js/efect-parallax.js"></script>
+    <script src="/js/fuctions.js"></script>
+</body>
+
+</html>

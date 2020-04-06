@@ -1,0 +1,17 @@
+{
+  "chat": [
+    {
+      "user": "Christian",
+      "texto": "hola que tal ??"
+    }
+  ],
+  "user": [
+    {
+      "id": "0e08b548-98a6-4ad8-85ca-62f87d119954",
+      "name": "Christian Ricardo Aponte Gutierrez",
+      "email": "cristhianprozqwerty@gmail.com",
+      "password": "cristhianqwerty",
+      "data": []
+    }
+  ]
+}

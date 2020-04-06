@@ -1,0 +1,46 @@
+body,
+html {
+    background-image: url("../img/diamond-zag.png");
+    background-attachment: fixed;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+
+.items {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 10px;
+}
+
+.card-img-bottom {
+    border-radius: 5px;
+}
+
+.card {
+    padding: 10px;
+    min-height: 100%;
+}
+
+.card img {
+    height: 350px;
+    max-width: 100%;
+}
+
+.avatar img {
+    border-radius: 50%;
+}
+
+.button-user img {
+    border-radius: 50%;
+}
+
+.button-user {
+    outline: none;
+    border: none;
+    color: white;
+    background: none;
+}

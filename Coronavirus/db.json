@@ -1,0 +1,181 @@
+{
+  "Departamentos": [
+    {
+      "id": "bc2061f9-d56c-4bd7-bd7a-51b6174723e7",
+      "position": {
+        "lng": -77.0802424,
+        "lat": -12.0551637
+      },
+      "departamento": "Lima",
+      "positivos": "369",
+      "recuperados": "1",
+      "fallecidos": "6"
+    },
+    {
+      "id": "4af7776b-2815-4982-981a-50bdb7f5dbe1",
+      "position": {
+        "lng": -80.654884,
+        "lat": -5.178288
+      },
+      "departamento": "Piura",
+      "positivos": "19",
+      "recuperados": "0",
+      "fallecidos": "1"
+    },
+    {
+      "id": "233a1128-d0e8-4123-a492-badea9c82942",
+      "position": {
+        "lng": -73.243457,
+        "lat": -3.750162
+      },
+      "departamento": "Loreto",
+      "positivos": "18",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "72260802-3959-4af9-b6f0-3c19ac3f9552",
+      "position": {
+        "lng": -75.992524,
+        "lat": -11.161004
+      },
+      "departamento": "Junin",
+      "positivos": "11",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "5bcee734-7394-49b9-a2cc-63b3c0da5560",
+      "position": {
+        "lng": -79.9429444,
+        "lat": -6.708686
+      },
+      "departamento": "Lambayeque",
+      "positivos": "12",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "e55098a6-1e81-4245-9819-b40bdbb55bf4",
+      "position": {
+        "lng": -71.5740311,
+        "lat": -16.4039671
+      },
+      "departamento": "Arequipa",
+      "positivos": "10",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "fd67e93b-38ab-4650-b136-a3a05ae2f648",
+      "position": {
+        "lng": -77.139128,
+        "lat": -12.052462
+      },
+      "departamento": "Callao",
+      "positivos": "10",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "8cee0a87-c7a8-4bb3-9de6-9479e6c62106",
+      "position": {
+        "lng": -79.028887,
+        "lat": -8.107257
+      },
+      "departamento": "La Libertad",
+      "positivos": "6",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "4c3f5c5d-58aa-42ed-a58d-697f4c42b06e",
+      "position": {
+        "lng": -72.00929,
+        "lat": -13.5298427
+      },
+      "departamento": "Cuzco",
+      "positivos": "10",
+      "recuperados": "0",
+      "fallecidos": "1"
+    },
+    {
+      "id": "1f57f2be-3d00-4ead-a19d-42f10a80a560",
+      "position": {
+        "lng": -77.52751,
+        "lat": -9.52854
+      },
+      "departamento": "Ancash",
+      "positivos": "5",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "3e2a97dc-819c-4082-8e01-07d43137fbb0",
+      "position": {
+        "lng": -76.3633039,
+        "lat": -9.8911106
+      },
+      "departamento": "Huanuco",
+      "positivos": "2",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "35547bd2-580c-4382-8e17-f0fb9ac12e5c",
+      "position": {
+        "lng": -75.7806772,
+        "lat": -14.0836684
+      },
+      "departamento": "Ica",
+      "positivos": "2",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "a7a130a2-76c2-4a60-a9f2-c4dc412a5203",
+      "position": {
+        "lng": -78.517565,
+        "lat": -7.157019
+      },
+      "departamento": "San Martin",
+      "positivos": "1",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "a46ae0e9-4087-442f-b10b-ef58682161d3",
+      "position": {
+        "lng": -72.7854326,
+        "lat": -11.6102447
+      },
+      "departamento": "Madre de Dios",
+      "positivos": "1",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "a24211e6-86a9-420c-b0b5-b6da9dc7b22d",
+      "position": {
+        "lng": "-80.458509",
+        "lat": "-3.570406"
+      },
+      "departamento": "Tumbes",
+      "positivos": "3",
+      "recuperados": "0",
+      "fallecidos": "0"
+    },
+    {
+      "id": "82981daa-408d-40fe-a78e-850e35fcc815",
+      "position": {
+        "lng": "-78.51657",
+        "lat": "-7.156134"
+      },
+      "departamento": "Cajamarca",
+      "positivos": "1",
+      "recuperados": "0",
+      "fallecidos": "0"
+    }
+  ],
+  "CasosTotales": 480
+}

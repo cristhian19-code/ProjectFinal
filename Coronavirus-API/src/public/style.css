@@ -1,0 +1,18 @@
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.map {
+    height: 100%;
+    z-index: 0;
+}
+
+.marker {
+    background-image: url("https://img.icons8.com/office/16/000000/fire-alarm-button.png");
+    height: 16px;
+    width: 16px;
+    z-index: 1;
+    cursor: pointer;
+}

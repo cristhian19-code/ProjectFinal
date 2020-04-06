@@ -1,0 +1,25 @@
+{
+    "name": "Project-final",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon src/index.js --ignore datos.json"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "lowdb": "^1.0.0",
+        "morgan": "^1.10.0",
+        "socket.io": "^2.3.0",
+        "swig": "^1.4.2",
+        "typed.js": "^2.0.11",
+        "uuid": "^7.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    }
+}
