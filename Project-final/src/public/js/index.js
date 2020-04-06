@@ -188,8 +188,8 @@ const clearBoxRegister = () => {
 };
 //funciton para limpiar las cajas del login
 const clearBoxLogin = () => {
-    $('#user').val('');
-    $('#texto').val('');
+    $('#login-email').val('');
+    $('#login-password').val('');
 }
 
 //almacenamiento en el localStorage
