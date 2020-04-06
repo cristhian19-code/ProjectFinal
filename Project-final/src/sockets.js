@@ -24,6 +24,16 @@ function validationExisting(datos, email, password) {
     return false;
 }
 
+function returnData(email) {
+    const datos = getConnection().get('user').value();
+    for (var i = 0; i < datos.length; i++) {
+        if (datos[i].email == email) {
+            return { name: datos[i].name };
+            break;
+        }
+    }
+}
+
 module.exports = io => {
     io.on('connection', (socket) => {
         //socket de chat global
@@ -55,9 +65,9 @@ module.exports = io => {
         socket.on('login-recived', (data) => {
             const existingMail = getConnection().get('user').value();
             if (validationExisting(existingMail, data.email, data.password)) {
-                io.emit('login-send', { confirm: true, email: data.email, password: data.password });
+                io.emit('login-send', { confirm: true, email: data.email, name: returnData(data.email).name });
             } else {
-                io.emit('login-send', { confirm: false, email: data.email, password: data.password });
+                io.emit('login-send', { confirm: false });
             }
         });
     });

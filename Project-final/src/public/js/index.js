@@ -3,22 +3,45 @@ const chat = document.querySelector('.chat');
 const alert_container = document.querySelector('.alert');
 const alert_login = document.querySelector('.alert-login');
 const usuario = document.querySelector('.usuario');
-const exit = document.querySelector('.btnexit');
+
 //initialization
 const parseh = new DOMParser();
 
-//mostrar datos con localStorage
-
+//guandando los key del localStorage
 const viewData = () => {
     return Object.keys(localStorage).map(key => key);
-}
+};
 
-function correoValidation(data) {
+// verificando si es un correo los datos de localStorage
+function correoValidation() {
     var path = /@/;
-    if (path.test(data)) {
-
+    for (var i = 0; i < viewData().length; i++) {
+        if (path.test(viewData()[i])) {
+            return viewData()[i];
+            break;
+        }
     }
 }
+
+//eliminar datos del localStorage
+const clearStorage = () => {
+    localStorage.clear();
+}
+
+//mostrar datos del localStorage
+
+const viewStorage = () => {
+    if (correoValidation()) {
+        const data = JSON.parse(localStorage.getItem(correoValidation()));
+        usuario.textContent = data.name;
+        $('#user').val(data.name);
+    } else {
+        alert('Aun no esta logueado');
+    }
+}
+
+viewStorage();
+
 //TEMPLATES
 
 //template contraseñas no coinciden
@@ -156,35 +179,47 @@ socket.on('send', (data) => {
     chat.appendChild(parsechatHTML(templateChat(data.user, data.texto)));
 });
 
-//funcion para limpiar las cajas
-const clearBox = () => {
+//funcion para limpiar las cajas del registro
+const clearBoxRegister = () => {
     $('#name').val('');
     $('#email-register').val('');
     $('#password-register').val('');
     $('#password-confirm-register').val('');
 };
+//funciton para limpiar las cajas del login
+const clearBoxLogin = () => {
+    $('#user').val('');
+    $('#texto').val('');
+}
 
 //almacenamiento en el localStorage
 const setLocalStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
-}
+};
 
+//escuchando el regreso de el register
 socket.on('register-send', (data) => {
     if (data.validation) {
-        // setLocalStorage(data.email, { email: data.email, name: data.name });
+        clearStorage();
+        setLocalStorage(data.email, { email: data.email, name: data.name });
         alertRegistration(alert_container);
-        clearBox(alert_container);
-        usuario.textContent = data.email;
+        clearBoxRegister();
+        usuario.textContent = data.name;
+        $('#user').val(data.name);
     } else {
         alertExistingUser(alert_container);
     }
 });
 
+//escuchando el regreso de el login
 socket.on('login-send', (data) => {
     if (data.confirm) {
-        setLocalStorage(data.email, { email: data.email, password: data.password });
+        clearStorage();
+        setLocalStorage(data.email, { email: data.email, name: data.name });
         alertLogueoSucce(alert_login);
-        usuario.textContent = data.email;
+        clearBoxLogin();
+        usuario.textContent = data.name;
+        $('#user').val(data.name);
     } else {
         alertRegistered(alert_login);
     }
@@ -192,7 +227,7 @@ socket.on('login-send', (data) => {
 
 //ejecutar al iniciar
 $(function() {
-    $('.btn').click(function(e) {
+    $('.btnchat').click(function(e) {
         e.preventDefault();
         var user = $('#user').val();
         var texto = $('#texto').val();
@@ -229,5 +264,10 @@ $(function() {
         } else {
             alertBox(alert_login);
         }
+    });
+
+    $('.btnexit').click(function() {
+        clearStorage();
+        location.reload();
     });
 });
