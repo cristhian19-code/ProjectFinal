@@ -1,12 +1,12 @@
 {
   "chat": [
     {
-      "user": "Christian",
-      "texto": "hola que tal ??"
+      "user": "Josselyn",
+      "texto": "Holis😮"
     },
     {
       "user": "Christian Ricardo Aponte Gutierrez",
-      "texto": "hola que tal como estan ??:v"
+      "texto": "jaajjaaa mi ratoncita sabrosa"
     }
   ],
   "user": [
@@ -18,17 +18,17 @@
       "data": []
     },
     {
-      "id": "5efa4de4-ec97-4b87-82bd-62631e899b1f",
-      "name": "Christian",
-      "email": "cristhian_99_piscis@gmail.com",
+      "id": "3a06b76e-487c-4d63-ba6f-67eaa10873cc",
+      "name": "cristhian19-code",
+      "email": "cristhian_99_piscis@hotmail.com",
       "password": "cristhianqwerty",
       "data": []
     },
     {
-      "id": "30413fa8-c52d-4b94-836a-e6e3c9d74d4e",
-      "name": "Christian Aponte Gutierrez",
-      "email": "christian.aponte.g@uni.pe",
-      "password": "cristhianqwerty",
+      "id": "0b5ea6a7-b8f0-4c58-b1a7-3cca610650eb",
+      "name": "Christian aponte",
+      "email": "cristhianqwertyasd@gmail.com",
+      "password": "cristhian",
       "data": []
     }
   ]

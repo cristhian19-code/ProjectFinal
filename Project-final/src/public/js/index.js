@@ -197,33 +197,69 @@ const setLocalStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
 
-//escuchando el regreso de el register
-socket.on('register-send', (data) => {
-    if (data.validation) {
-        clearStorage();
-        setLocalStorage(data.email, { email: data.email, name: data.name });
-        alertRegistration(alert_container);
-        clearBoxRegister();
-        usuario.textContent = data.name;
-        $('#user').val(data.name);
-    } else {
-        alertExistingUser(alert_container);
-    }
-});
 
-//escuchando el regreso de el login
-socket.on('login-send', (data) => {
-    if (data.confirm) {
-        clearStorage();
-        setLocalStorage(data.email, { email: data.email, name: data.name });
-        alertLogueoSucce(alert_login);
-        clearBoxLogin();
-        usuario.textContent = data.name;
-        $('#user').val(data.name);
-    } else {
-        alertRegistered(alert_login);
+//Objeto para las validaciones del loin y el register
+const Validation = {
+    validationRegister: function(email, name, password) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var validation = false;
+                const response = JSON.parse(xhttp.responseText);
+                const users = response.user;
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].email == email) {
+                        validation = true;
+                        break;
+                    }
+                }
+                if (validation) {
+                    alertExistingUser(alert_container);
+                } else {
+                    clearStorage();
+                    const datos = { name, email, password }
+                    socket.emit('register-recived', datos);
+                    setLocalStorage(datos.email, { email: datos.email, name: datos.name });
+                    alertRegistration(alert_container);
+                    clearBoxRegister();
+                    usuario.textContent = datos.name;
+                    $('#user').val(datos.name);
+                }
+            }
+        };
+        xhttp.open("GET", "/db/user.json", true);
+        xhttp.send();
+    },
+    validationLogin: function(email, password) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var validation = false;
+                const response = JSON.parse(xhttp.responseText);
+                const users = response.user;
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].email == email && users[i].password == password) {
+                        validation = true;
+                        datos = { email: users[i].email, name: users[i].name };
+                        break;
+                    }
+                }
+                if (validation) {
+                    clearStorage();
+                    setLocalStorage(datos.email, datos);
+                    alertLogueoSucce(alert_login);
+                    clearBoxLogin();
+                    usuario.textContent = datos.name;
+                    $('#user').val(datos.name);
+                } else {
+                    alertRegistered(alert_login)
+                }
+            }
+        };
+        xhttp.open("GET", "/db/user.json", true);
+        xhttp.send();
     }
-});
+}
 
 //ejecutar al iniciar
 $(function() {
@@ -238,7 +274,7 @@ $(function() {
         }
     });
     //boton de registro mediante socket
-    $('.btn-register').click(async function(e) {
+    $('.btn-register').click(function(e) {
         e.preventDefault();
         alert_container.innerHTML = null;
         var name = $('#name').val();
@@ -247,7 +283,7 @@ $(function() {
         var password_confirm_register = $('#password-confirm-register').val();
         if (name != "" && email_register != "" && password_register != "" && password_confirm_register != "") {
             if (password_register === password_confirm_register) {
-                await socket.emit('register-recived', { name, email: email_register, password: password_register });
+                Validation.validationRegister(email_register, name, password_register);
             } else {
                 alertPassword(alert_container);
             }
@@ -256,11 +292,12 @@ $(function() {
         }
     });
 
-    $('.btn-login').click(async function() {
+    $('.btn-login').click(function(e) {
+        e.preventDefault();
         var email = $('#login-email').val();
         var password = $('#login-password').val();
         if (email != "" && password != "") {
-            await socket.emit('login-recived', { email, password });
+            Validation.validationLogin(email, password);
         } else {
             alertBox(alert_login);
         }
