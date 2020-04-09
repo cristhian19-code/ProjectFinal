@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -37,16 +37,10 @@
                         </button>
                     </li>
                 </ul>
+                <!-- Login and Register -->
 
-                <!-- datos del usuario -->
-                <div class="dropdown open col-md-2 container-user">
-
-                </div>
-
-                <!-- LOGIN AND REGISTER -->
-
-                <!-- loguearse -->
-                <div class="modal fade mt-5" id="login" role="dialog">
+                <!-- login -->
+                <div class="modal fade" id="login" role="dialog">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -57,10 +51,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                                            <i class="fa fa-envelope"></i>
-                                        </span>
+                              <i class="fa fa-envelope"></i>
+                            </span>
                                     </div>
-                                    <input type="email" id="login-email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -68,20 +62,21 @@
                                             <i class="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <input type="password" id="login-password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
-                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block login">
+                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
                                     <span>Login <i class="fa fa-sign-in"></i></span>
                                 </button>
-                                <div class="text-center mt-2">
+                                <div class="text-center">
                                     <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#signup">Signup</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- registrarse -->
-                <div class="modal fade mt-5" id="signup" role="dialog">
+
+                <!-- Signup -->
+                <div class="modal fade" id="signup" role="dialog">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -95,7 +90,7 @@
                                             <i class="fa fa-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Name" id="register-name" aria-label="Name" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -103,7 +98,7 @@
                                             <i class="fa fa-envelope"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Email" id="register-email" aria-label="Email" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -111,32 +106,29 @@
                                             <i class="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Password" id="register-password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
                                             <i class="fa fa-lock"></i>
-                                         </span>
+                                        </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Password confirmation" id="register-confirm-password" aria-label="Password confirmation" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
                                 </div>
-                                <form class="custom-file mb-3 form">
-                                    <input type="file" name="url" class="custom-file-input file-image" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </form>
-                                <div class="image-preview mb-3">
-
-                                </div>
-                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block register">
+                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
                                     <span>Signup <i class="fa fa-sign-in"></i></span>
                                 </button>
-                                <div class="text-center mt-2">
+                                <div class="text-center">
                                     <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- datos del usuario -->
+                <div class="dropdown open col-md-2 container-user">
+
                 </div>
             </div>
         </nav>
@@ -149,15 +141,16 @@
                     <input type="text" name="" id="name" class="form-control my-3" placeholder="Name of the animal">
                     <input type="url" name="" id="url" class="form-control my-3" placeholder="URL">
                 </div>
-                <button type="submit" class="btn btn-outline-light send-datos" disabled>Send</button>
+                <button type="submit" class="btn btn-outline-light send-datos">Send</button>
             </form>
         </div>
         <div class="items mt-3 p-5">
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="../public/js/typed.js"></script>
     <script src="../public/js/efect-typed.js"></script>
     <script src="../public/js/index.js"></script>
