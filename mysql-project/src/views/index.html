@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid" align="center">
+        <form action="/" method="POST" class="mt-3">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control" autocomplete="off" placeholder="Name">
+            </div>
+            <input type="submit" value="Consult" class="btn btn-primary">
+        </form>
+        <table class="table mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Cod</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dato in rows %}
+                <tr>
+                    <th scope="row">{{dato.codigo}}</th>
+                    <td>{{dato.name}}</td>
+                    <td>{{dato.phone}}</td>
+                    <td>
+                        <a href="/edit/{{dato.codigo}}" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCentered">Edit</a>
+                        <a href="/delete/{{dato.codigo}}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true" align="center">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenteredLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/edit" method="POST">
+                    <div class="modal-body">
+                        <input type="text" name="nameChange" id="nameChange" class="form-control mt'2">
+                        <input type="number" size="9" name="phoneChange" id="phoneChange" class="form-control mt'2">
+                        <input type="text" name="codigo" id="codigoChange" hidden>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Save change">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        $('.btn-success').click(function(e) {
+            var href = e.target.attributes.href.value;
+            fetch(`${href}`)
+                .then((result) => {
+                    return result.json();
+                })
+                .then((rows) => {
+                    const datos = rows.rows[0];
+                    $('#nameChange').val(datos.name);
+                    $('#phoneChange').val(datos.phone);
+                    $('#codigoChange').val(datos.codigo);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
