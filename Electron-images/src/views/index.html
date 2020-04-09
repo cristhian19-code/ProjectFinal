@@ -32,14 +32,13 @@
                         </div>
                     </li>
                     <li class="nav-item my-3">
-                        <button type="submit" name="commit" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#login">
-                            Login/Signup
+                        <button type="submit" name="commit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login">
+                          Login/Signup
                         </button>
                     </li>
                 </ul>
-                <!-- Login and Register -->
-
-                <!-- login -->
+                <!-- Login and Signup -->
+                <!-- required bootstrap js -->
                 <div class="modal fade" id="login" role="dialog">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -48,13 +47,16 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
+                                <div class="container-login">
+
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                              <i class="fa fa-envelope"></i>
-                            </span>
+                                            <i class="fa fa-envelope"></i>
+                                        </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                    <input id="login-email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -62,9 +64,9 @@
                                             <i class="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input id="login-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
-                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
+                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-login">
                                     <span>Login <i class="fa fa-sign-in"></i></span>
                                 </button>
                                 <div class="text-center">
@@ -75,7 +77,6 @@
                     </div>
                 </div>
 
-                <!-- Signup -->
                 <div class="modal fade" id="signup" role="dialog">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -84,13 +85,16 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
+                                <div class="container-signup">
+
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
                                             <i class="fa fa-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
+                                    <input id="signup-name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" autocomplete="off">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -98,7 +102,7 @@
                                             <i class="fa fa-envelope"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                    <input id="signup-email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" autocomplete="off">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -106,7 +110,7 @@
                                             <i class="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input id="signup-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -114,9 +118,9 @@
                                             <i class="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
+                                    <input id="signup-confirm-password" type="password" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
                                 </div>
-                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
+                                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-signup">
                                     <span>Signup <i class="fa fa-sign-in"></i></span>
                                 </button>
                                 <div class="text-center">
@@ -126,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- datos del usuario -->
                 <div class="dropdown open col-md-2 container-user">
 
@@ -138,8 +143,8 @@
         <div class="row justify-content-center">
             <form action="" class="col-8" align="center">
                 <div class="form-group">
-                    <input type="text" name="" id="name" class="form-control my-3" placeholder="Name of the animal">
-                    <input type="url" name="" id="url" class="form-control my-3" placeholder="URL">
+                    <input type="text" name="" id="name" class="form-control my-3" placeholder="Name of the animal" required>
+                    <input type="url" name="" id="url" class="form-control my-3" placeholder="URL" required>
                 </div>
                 <button type="submit" class="btn btn-outline-light send-datos">Send</button>
             </form>
@@ -154,6 +159,7 @@
     <script src="../public/js/typed.js"></script>
     <script src="../public/js/efect-typed.js"></script>
     <script src="../public/js/index.js"></script>
+    <script src="../public/js/preview_image.js"></script>
 </body>
 
 </html>
