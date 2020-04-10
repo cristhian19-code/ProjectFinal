@@ -1,117 +1,50 @@
-const container_login = document.querySelector('.container-login')
-const container_signup = document.querySelector('.container-signup')
+//limpiando cajas registro
 
-//Inicializacion del parseDOM
-const parse = new DOMParser();
-
-//TEMPLATES
-
-//alert cajas vacias
-const templateCajasVacias = () => {
-    return `
-    <div class="alert alert-warning" role="alert">
-        <strong>Warning!</strong> Llene todos los casilleros.
-    </div>
-    `
+const ClearBoxRegister = () => {
+    $('#signup-name').val('');
+    $('#signup-email').val('');
+    $('#signup-password').val('');
+    $('#signup-confirm-password').val('');
 }
 
-const parseCajasVacias = (container) => {
-    const alert = parse.parseFromString(templateCajasVacias(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
+//limpiando cajas login
+
+const ClearBoxLogin = () => {
+    $('#login-email').val('');
+    $('#login-password').val('');
 }
 
-//alert contraseñas no coinciden
+//verificando si hay datos en el localStorage
 
-const templateContraNoCoinciden = () => {
-    return `
-    <div class="alert alert-warning" role="alert">
-        <strong>Warning!</strong> Las contraseñas no coinciden.
-    </div>
-    `
+const getStorage = () => {
+    const data = Object.keys(localStorage).map(key => localStorage.getItem(key));
+    if (data[0] != undefined) {
+        const user = JSON.parse(data[0]);
+
+        if (user) {
+            const name = document.querySelector('.name-user')
+            name.textContent = user.name;
+            $('#btn-login-signup').attr('hidden', 'true');
+        } else {
+            $('#btn-login-signup').attr('hidden', 'false');
+            console.log('Aun no esta logueado');
+        }
+    }
 }
 
-const parseContraNoCoinciden = (container) => {
-    const alert = parse.parseFromString(templateContraNoCoinciden(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
-}
+getStorage();
 
-//registro exitoso
-const templateRegistroExitoso = () => {
-    return `
-    <div class="alert alert-success" role="alert">
-        <strong>Well done!</strong> Registro exitoso.
-    </div>
-    `
-}
-
-const parseRegistroExitoso = (container) => {
-    const alert = parse.parseFromString(templateRegistroExitoso(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
-}
-
-//usuarios ya registrado
-const templateUsuarioYaRegistrado = () => {
-    return `
-    <div class="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> El usuario ya se encuantra registrado.
-    </div>
-    `
-}
-
-const parseUsuarioYaRegistrado = (container) => {
-    const alert = parse.parseFromString(templateUsuarioYaRegistrado(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
-}
-
-//iniciar sesion exitoso
-const templateInicioSesionExitoso = () => {
-    return `
-    <div class="alert alert-success" role="alert">
-        <strong>Well done!</strong> Inicio de sesion exitoso.
-    </div>
-    `
-}
-
-const parseInicioSesionExitoso = (container) => {
-    const alert = parse.parseFromString(templateInicioSesionExitoso(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
-}
-
-//usuarios ya registrado
-const templateInicioSesionDenegada = () => {
-    return `
-    <div class="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> Email o contraseña incorrecta.
-    </div>
-    `
-}
-
-const parseInicioSesionDenegada = (container) => {
-    const alert = parse.parseFromString(templateInicioSesionDenegada(), 'text/html').querySelector('.alert');
-    container.appendChild(alert);
-    setTimeout(() => {
-        container.innerHTML = null;
-    }, 4000);
+//limpiando el localStorage
+const clearLocalStorage = () => {
+    localStorage.clear();
 }
 
 //Eventos
 $(function() {
+    //modulos de connexion a db con json y alert estilizados
+    const swit = require('sweetalert');
     const low = require('lowdb');
+
     const FileAsync = require('lowdb/adapters/FileAsync');
     const adapter = new FileAsync('db.json');
 
@@ -121,8 +54,56 @@ $(function() {
         db = await low(adapter);
         db.defaults({ user: [] }).write();
     }
+
+    //creando la base de dato en formato json
     createConnection();
     const getConnection = () => db;
+
+    //objeto que contiene la funcion swit para reutilizar el codigo
+    const alertsStyle = {
+        alert: function(text, alert) {
+            swit(text, {
+                icon: alert,
+                button: false,
+                closeOnEsc: false,
+                closeOnClickOutside: false,
+                timer: 3000
+            });
+        },
+        alertConfirm: function() {
+            swit({
+                    title: 'Esta seguro de finalizar la sesion?',
+                    icon: 'warning',
+                    buttons: true,
+                    closeOnEsc: false,
+                    closeOnClickOutside: false,
+                    dangerMode: true
+                })
+                .then((result) => {
+                    if (!result) {
+                        swit("Sesion no finalizada", {
+                            button: false,
+                            timer: 3000,
+                            closeOnEsc: false,
+                            closeOnClickOutside: false,
+                            icon: 'success'
+                        });
+                    } else {
+                        clearLocalStorage();
+                        swit("Sesion finalizada", {
+                            button: false,
+                            icon: 'error',
+                            closeOnEsc: false,
+                            closeOnClickOutside: false,
+                            timer: 3000
+                        });
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000)
+                    }
+                });
+        }
+    }
 
     $('.btn-signup').click(function(e) {
         var verificacion = true;
@@ -148,15 +129,20 @@ $(function() {
                         datos: []
                     }
                     getConnection().get('user').push(datos).write();
-                    parseRegistroExitoso(container_signup);
+
+                    alertsStyle.alert('REGISTRO EXITOSO', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                    ClearBoxRegister();
                 } else {
-                    parseUsuarioYaRegistrado(container_signup);
+                    alertsStyle.alert('EL USUARIO YA SE ENCUENTRA REGISTRADO', 'warning');
                 }
             } else {
-                parseContraNoCoinciden(container_signup);
+                alertsStyle.alert('LAS CONTRASEÑAS NO COINCIDEN', 'error');
             }
         } else {
-            parseCajasVacias(container_signup);
+            alertsStyle.alert('CAJAS VACIAS', 'warning');
         }
     });
 
@@ -169,18 +155,22 @@ $(function() {
             const usuarios = getConnection().get('user').value();
             for (var i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == email && usuarios[i].password == password) {
-                    localStorage.setItem(email, JSON.stringify({ email, password }));
+                    localStorage.setItem(email, JSON.stringify({ email, name: usuarios[0].name }));
                     veri = false;
                     break;
                 }
             }
             if (!veri) {
-                parseInicioSesionExitoso(container_login);
+                alertsStyle.alert('INICIO DE SESION EXITOSO', 'success');
+                ClearBoxLogin();
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             } else {
-                parseInicioSesionDenegada(container_login);
+                alertsStyle.alert('ACCESO DENEGADO', 'error');
             }
         } else {
-            parseCajasVacias(container_login);
+            alertsStyle.alert('CAJAS VACIAS', 'warning');
         }
     });
 
@@ -189,5 +179,20 @@ $(function() {
         user = $('#name').val();
         url = $('#url').val();
         getConnection().get('user').push({ user, url }).write();
+    });
+
+    $('#signup-confirm-password').keyup(function(e) {
+        const password = $('#signup-password').val();
+        if (e.target.value == password) {
+            $('#signup-confirm-password').removeClass('btn btn-outline-danger');
+            $('#signup-confirm-password').addClass('btn btn-outline-success');
+        } else {
+            $('#signup-confirm-password').addClass('btn btn-outline-danger');
+
+        }
+    });
+
+    $('.btn-exit').click(function() {
+        alertsStyle.alertConfirm();
     });
 });

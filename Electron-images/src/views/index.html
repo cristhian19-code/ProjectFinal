@@ -5,21 +5,22 @@
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
     <div class="container-fluid" align="center">
         <nav class="row navbar navbar-expand-md navbar-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="index.html">Navbar</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="row navbar-nav mr-auto mt-2 mt-lg-0 align-items-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -32,7 +33,7 @@
                         </div>
                     </li>
                     <li class="nav-item my-3">
-                        <button type="submit" name="commit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login">
+                        <button type="submit" id="btn-login-signup" name="commit" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#login">
                           Login/Signup
                         </button>
                     </li>
@@ -47,9 +48,6 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <div class="container-login">
-
-                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
@@ -85,44 +83,41 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <div class="container-signup">
-
-                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                                            <i class="fa fa-user"></i>
-                                        </span>
+                                                    <i class="fa fa-user"></i>
+                                                </span>
                                     </div>
                                     <input id="signup-name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" autocomplete="off">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                                            <i class="fa fa-envelope"></i>
-                                        </span>
+                                                    <i class="fa fa-envelope"></i>
+                                                </span>
                                     </div>
                                     <input id="signup-email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" autocomplete="off">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
                                     </div>
                                     <input id="signup-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
                                     </div>
                                     <input id="signup-confirm-password" type="password" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
                                 </div>
                                 <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-signup">
-                                    <span>Signup <i class="fa fa-sign-in"></i></span>
-                                </button>
+                                            <span>Signup <i class="fa fa-sign-in"></i></span>
+                                        </button>
                                 <div class="text-center">
                                     <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
                                 </div>
@@ -132,15 +127,27 @@
                 </div>
 
                 <!-- datos del usuario -->
-                <div class="dropdown open col-md-2 container-user">
-
+                <div class="btn-group mr-5">
+                    <button type="button" class="dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <a type="button" class="btn-image mr-5">
+                        <img src="https://cdn.pixabay.com/photo/2018/08/12/16/59/ara-3601194_960_720.jpg" alt="" class="rounded-circle border border-light" height="60px" width="60px">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item font-italic mt-1" href="profile.html">
+                            <p class="name-user text-black">Welcome</p>
+                        </a>
+                        <a class="dropdown-item font-italic mt-1 btn-exit" href="#!">Exit</a>
+                    </div>
                 </div>
+                <div class="col-1"></div>
             </div>
         </nav>
-        <div class="row justify-content-center my-3">
+        <div class="row justify-content-center align-items-center title-principal">
             <p class="display-3 text-white font-italic">Save photos of your <span class="portada"></span></p>
         </div>
-        <div class="row justify-content-center">
+        <!--<div class="row justify-content-center">
             <form action="" class="col-8" align="center">
                 <div class="form-group">
                     <input type="text" name="" id="name" class="form-control my-3" placeholder="Name of the animal" required>
@@ -150,7 +157,7 @@
             </form>
         </div>
         <div class="items mt-3 p-5">
-        </div>
+        </div> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
