@@ -6,7 +6,7 @@ let mainWindow = null;
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         fullscreen: true,
-        frame: true,
+        frame: false,
         backgroundColor: '#2e2c29',
         resizable: false,
         movable: false,
