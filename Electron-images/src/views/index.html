@@ -35,12 +35,12 @@
                 <li class="nav-item my-3">
                     <button type="submit" id="btn-login-signup" name="commit" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#login">
                           Login/Signup
-                        </button>
+                    </button>
                 </li>
             </ul>
             <!-- Login and Signup -->
             <!-- required bootstrap js -->
-            <form class="modal fade" id="login" role="dialog">
+            <form class="modal fade mt-5" id="login" role="dialog">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -75,7 +75,7 @@
                 </div>
             </form>
 
-            <form class="modal fade" id="signup" role="dialog">
+            <form class="modal fade mt-5" id="signup" role="dialog">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -86,32 +86,48 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">
-                                                    <i class="fa fa-user"></i>
-                                                </span>
+                                        <i class="fa fa-user"></i>
+                                </span>
                                 </div>
                                 <input id="signup-name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" autocomplete="off">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">
-                                                    <i class="fa fa-envelope"></i>
-                                                </span>
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
                                 </div>
                                 <input id="signup-email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" autocomplete="off">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">
-                                                    <i class="fa fa-lock"></i>
-                                                </span>
+                                        <i class="fas fa-birthday-cake"></i>
+                                    </span>
+                                </div>
+                                <input id="signup-date" type="date" class="form-control" placeholder="Year of birth" aria-label="YearOfBirth" aria-describedby="basic-addon1" autocomplete="off">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input id="signup-year" type="number" class="form-control" placeholder="Year" aria-label="Year" aria-describedby="basic-addon1" autocomplete="off">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
                                 </div>
                                 <input id="signup-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">
-                                                    <i class="fa fa-lock"></i>
-                                                </span>
+                                        <i class="fa fa-lock"></i>
+                                    </span>
                                 </div>
                                 <input id="signup-confirm-password" type="password" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
                             </div>
@@ -135,7 +151,7 @@
                     <img src="https://cdn.pixabay.com/photo/2018/08/12/16/59/ara-3601194_960_720.jpg" alt="" class="rounded-circle border border-light" height="60px" width="60px">
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item font-italic mt-1" href="profile.html">
+                    <a class="dropdown-item font-italic mt-1 btn-profile" href="profile.html">
                         <p class="name-user text-black">Welcome</p>
                     </a>
                     <a class="dropdown-item font-italic mt-1 btn-exit" href="#!">Exit</a>

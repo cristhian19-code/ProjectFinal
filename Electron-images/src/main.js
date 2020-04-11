@@ -12,6 +12,7 @@ app.on('ready', () => {
         movable: false,
         transparent: true,
         webPreferences: {
+            nodeIntegrationInSubFrames: true,
             nodeIntegration: true
         }
     });

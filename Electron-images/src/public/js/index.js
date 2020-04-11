@@ -20,15 +20,17 @@ const getStorage = () => {
     const data = Object.keys(localStorage).map(key => localStorage.getItem(key));
     if (data[0] != undefined) {
         const user = JSON.parse(data[0]);
-
         if (user) {
             const name = document.querySelector('.name-user')
             name.textContent = user.name;
+            $('.dropdown-menu').removeAttr('hidden');
             $('#btn-login-signup').attr('hidden', 'true');
         } else {
+            $('.dropdown-menu').attr('hidden', 'true');
             $('#btn-login-signup').attr('hidden', 'false');
-            console.log('Aun no esta logueado');
         }
+    } else {
+        $('.dropdown-menu').attr('hidden', 'true');
     }
 }
 
@@ -61,8 +63,8 @@ $(function() {
 
     //objeto que contiene la funcion swit para reutilizar el codigo
     const alertsStyle = {
-        alert: function(text, alert) {
-            swit(text, {
+        alert: async function(text, alert) {
+            await swit(text, {
                 icon: alert,
                 button: false,
                 closeOnEsc: false,
@@ -70,8 +72,8 @@ $(function() {
                 timer: 3000
             });
         },
-        alertConfirm: function() {
-            swit({
+        alertConfirm: async function() {
+            await swit({
                     title: 'Esta seguro de finalizar la sesion?',
                     icon: 'warning',
                     buttons: true,
@@ -105,14 +107,16 @@ $(function() {
         }
     }
 
-    $('.btn-signup').click(function(e) {
+    $('.btn-signup').click(async function(e) {
         var verificacion = true;
         e.preventDefault();
         var name = $('#signup-name').val();
         var email = $('#signup-email').val();
         var password = $('#signup-password').val();
+        var date = $('#signup-date').val();
+        var year = $('#signup-year').val();
         var confirm_password = $('#signup-confirm-password').val();
-        if (name != '' && email !== '' && password != '' && confirm_password != '') {
+        if (name != '' && email !== '' && password != '' && confirm_password != '' && date != '' && year != '') {
             if (password == confirm_password) {
                 const usuarios = getConnection().get('user').value();
                 for (var i = 0; i < usuarios.length; i++) {
@@ -126,15 +130,15 @@ $(function() {
                         email,
                         name,
                         password,
+                        date,
+                        year,
                         datos: []
                     }
                     getConnection().get('user').push(datos).write();
-
-                    alertsStyle.alert('REGISTRO EXITOSO', 'success');
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000);
+                    getStorage();
                     ClearBoxRegister();
+                    await alertsStyle.alert('REGISTRO EXITOSO', 'success');
+                    $('.close').trigger('click');
                 } else {
                     alertsStyle.alert('EL USUARIO YA SE ENCUENTRA REGISTRADO', 'warning');
                 }
@@ -146,7 +150,7 @@ $(function() {
         }
     });
 
-    $('.btn-login').click(function(e) {
+    $('.btn-login').click(async function(e) {
         e.preventDefault();
         var veri = true;
         var email = $('#login-email').val()
@@ -161,11 +165,10 @@ $(function() {
                 }
             }
             if (!veri) {
-                alertsStyle.alert('INICIO DE SESION EXITOSO', 'success');
+                getStorage();
                 ClearBoxLogin();
-                setTimeout(() => {
-                    location.reload();
-                }, 2000);
+                await alertsStyle.alert('INICIO DE SESION EXITOSO', 'success');
+                $('.close').trigger('click');
             } else {
                 alertsStyle.alert('NO ESTA REGISTRADO', 'error');
             }

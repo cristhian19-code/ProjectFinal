@@ -53,4 +53,8 @@ $(function() {
             $('.btn-secondary').trigger('click');
         });
     });
+    $('#To-return').click(function(e) {
+        e.preventDefault()
+        location.href = 'index.html'
+    })
 });
