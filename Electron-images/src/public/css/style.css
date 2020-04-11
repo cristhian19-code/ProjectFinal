@@ -13,7 +13,27 @@ body::-webkit-scrollbar {
 }
 
 .container-fluid {
+    padding: 0;
     height: 100%;
+}
+
+.fp-tableCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fp-slidesNav {
+    display: flex;
+    justify-content: center;
+}
+
+.fp-slidesNav ul li a span {
+    background: white;
+}
+
+#fp-nav ul li a span {
+    background: white;
 }
 
 .items {
