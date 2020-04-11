@@ -1,0 +1,27 @@
+body,
+html {
+    background-image: url('../img/diamond-zag.png');
+    background-attachment: fixed;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.col-3 {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-option {
+    outline: none;
+    border: none;
+    background: none;
+    color: white;
+    height: 20%;
+}
