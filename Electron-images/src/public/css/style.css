@@ -17,6 +17,14 @@ body::-webkit-scrollbar {
     height: 100%;
 }
 
+.navbar {
+    margin-left: 4px;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    z-index: 10000;
+}
+
 .fp-tableCell {
     display: flex;
     justify-content: center;

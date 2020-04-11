@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="row navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="index.html">Navbar</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
             </ul>
             <!-- Login and Signup -->
             <!-- required bootstrap js -->
-            <div class="modal fade" id="login" role="dialog">
+            <form class="modal fade" id="login" role="dialog">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -73,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
-            <div class="modal fade" id="signup" role="dialog">
+            <form class="modal fade" id="signup" role="dialog">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -116,15 +116,15 @@
                                 <input id="signup-confirm-password" type="password" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
                             </div>
                             <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-signup">
-                                            <span>Signup <i class="fa fa-sign-in"></i></span>
-                                        </button>
+                                <span>Signup <i class="fa fa-sign-in"></i></span>
+                            </button>
                             <div class="text-center">
                                 <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <!-- datos del usuario -->
             <div class="btn-group mr-5">

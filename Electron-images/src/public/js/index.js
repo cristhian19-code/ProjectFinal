@@ -167,7 +167,7 @@ $(function() {
                     location.reload();
                 }, 2000);
             } else {
-                alertsStyle.alert('ACCESO DENEGADO', 'error');
+                alertsStyle.alert('NO ESTA REGISTRADO', 'error');
             }
         } else {
             alertsStyle.alert('CAJAS VACIAS', 'warning');
