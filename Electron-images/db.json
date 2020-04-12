@@ -1,20 +1,3 @@
 {
-  "user": [
-    {
-      "email": "cristhianprozqwerty@gmail.com",
-      "name": "Christian Ricardo Aponte Gutierrez",
-      "password": "cristhianqwerty",
-      "date": "1999-03-20",
-      "year": "20",
-      "datos": []
-    },
-    {
-      "email": "cristhian.aponte.g@uni,pe",
-      "name": "Christian Ricardo Gutierrez",
-      "password": "cristhianqwerty123",
-      "date": "1999-03-20",
-      "year": "20",
-      "datos": []
-    }
-  ]
+    "user": []
 }
