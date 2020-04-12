@@ -31,31 +31,48 @@
                     <label for="" class="text-white">Email: </label>
                     <input type="email" name="email" id="email" class="form-control" disabled>
                 </div>
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCentered">
-                    Edit
-                </button>
+                <div class="form-group mt-4">
+                    <label for="" class="text-white">Year: </label>
+                    <input type="number" name="year" id="year" class="form-control" disabled>
+                </div>
+                <div class="form-group mt-4">
+                    <label for="" class="text-white">Year of birth: </label>
+                    <input type="date" name="date" id="date" class="form-control" disabled>
+                </div>
             </form>
+
             <form action="" class="edit-profile col-7 mt-5" align="center" hidden>
                 <div>
-                    <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg" alt="" class="rounded-circle border border-success" height="150px" width="150px">
+                    <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg" alt="" class="rounded-circle border border-success text-center" height="150px" width="150px">
                 </div>
                 <div class="form-group mt-5">
                     <label for="" class="text-white">Name: </label>
-                    <input type="text" name="name" id="name" class="form-control" disabled>
+                    <input type="text" name="name" id="edit-name" class="form-control">
                 </div>
                 <div class="form-group mt-4">
                     <label for="" class="text-white">Email: </label>
-                    <input type="email" name="email" id="email" class="form-control" disabled>
+                    <input type="email" name="email" id="edit-email" class="form-control">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="" class="text-white">Year: </label>
+                    <input type="number" name="year" id="edit-year" class="form-control">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="" class="text-white">Year of birth: </label>
+                    <input type="date" name="date" id="edit-date" class="form-control">
                 </div>
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCentered">
                     Edit
                 </button>
             </form>
-            <!-- Button trigger modal -->
 
-            <!-- Modal -->
+            <div class="list-group manage-accounts mt-5 col-10" hidden>
 
-            <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+            </div>
+
+            <!-- Modal Edit -->
+
+            <div class="modal fade" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

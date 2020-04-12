@@ -81,20 +81,20 @@ $(function() {
                     closeOnClickOutside: false,
                     dangerMode: true
                 })
-                .then((result) => {
+                .then(async(result) => {
                     if (!result) {
-                        swit("Sesion no finalizada", {
+                        await swit("Sesion no finalizada", {
                             button: false,
                             timer: 3000,
                             closeOnEsc: false,
                             closeOnClickOutside: false,
-                            icon: 'success'
+                            icon: 'error'
                         });
                     } else {
                         clearLocalStorage();
-                        swit("Sesion finalizada", {
+                        await swit("Sesion finalizada", {
                             button: false,
-                            icon: 'error',
+                            icon: 'success',
                             closeOnEsc: false,
                             closeOnClickOutside: false,
                             timer: 3000
@@ -159,7 +159,12 @@ $(function() {
             const usuarios = getConnection().get('user').value();
             for (var i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == email && usuarios[i].password == password) {
-                    localStorage.setItem(email, JSON.stringify({ email, name: usuarios[0].name }));
+                    localStorage.setItem(email, JSON.stringify({
+                        email: usuarios[i].email,
+                        name: usuarios[i].name,
+                        year: usuarios[i].year,
+                        date: usuarios[i].date
+                    }));
                     veri = false;
                     break;
                 }
