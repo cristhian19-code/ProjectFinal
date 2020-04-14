@@ -71,7 +71,7 @@
                 </div>
             </form>
 
-            <form class="modal fade mt-5" id="signup" role="dialog">
+            <form method="POST" class="modal fade" id="signup" role="dialog" enctype="multipart/form-data">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -126,6 +126,13 @@
                                     </span>
                                 </div>
                                 <input id="signup-confirm-password" type="password" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" name="avatar" class="custom-file-input avatar" id="signup-file">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="py-1" align="center">
+                                <img src="" class="preview-avatar" alt="" height="200px" width="250px">
                             </div>
                             <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-signup">
                                 <span>Signup <i class="fa fa-sign-in"></i></span>

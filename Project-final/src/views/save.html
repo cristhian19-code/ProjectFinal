@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body,
+        html {
+            background-image: url('/img/diamond-zag.png');
+            background-attachment: fixed;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .container-fluid {
+            height: 100%;
+        }
+        
+        .btn-profile,
+        .btn-setting {
+            background: none;
+            border: none;
+        }
+        
+        .avatar-user {
+            border-radius: 50%;
+        }
+        
+        .img-preview {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand" href="/">SPhotos</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId" align="center">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex align-items-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="gallery nav-link" href="/list" hidden>Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="save-photos nav-link" href="/save" hidden>Save Photos</a>
+                </li>
+            </ul>
+            <!-- aqui se agregara el menu del usuario -->
+            <div class="btn-group align-items-center my-2" hidden>
+                <button type="button" class="btn-profile">
+                    <img class="border border-white avatar-user" src="" alt="" height="50px" width="50px">
+                </button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </nav>
+    <div class="container-fluid d-flex">
+        <form action="/saveImg" method="POST" enctype="multipart/form-data" class="mt-5 form offset-md-3 col-md-6">
+            <p class="display-4 text-white text-center">Save Form</p>
+            <input type="email" name="email" id="email" class="form-control" hidden>
+            <div class="form-group">
+                <label for="" class="text-white">Title</label>
+                <input type="text" name="title" id="" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="" class="text-white">Description</label>
+                <textarea name="description" id="description" rows="2" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="" class="text-white">Image</label>
+                <div class="custom-file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <input type="file" name="avatar" class="custom-file-input" id="customFile" required>
+                </div>
+            </div>
+            <div class="container-preview d-flex justify-content-center">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </div>
+        </form>
+    </div>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="/js/savepreview.js"></script>
+</body>
+
+</html>

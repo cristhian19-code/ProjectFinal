@@ -46,7 +46,6 @@ $(function() {
     //modulos de connexion a db con json y alert estilizados
     const swit = require('sweetalert');
     const low = require('lowdb');
-
     const FileAsync = require('lowdb/adapters/FileAsync');
     const adapter = new FileAsync('db.json');
 
@@ -108,8 +107,8 @@ $(function() {
     }
 
     $('.btn-signup').click(async function(e) {
-        var verificacion = true;
         e.preventDefault();
+        var verificacion = true;
         var name = $('#signup-name').val();
         var email = $('#signup-email').val();
         var password = $('#signup-password').val();

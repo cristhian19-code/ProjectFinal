@@ -25,7 +25,10 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="gallery nav-link" href="/list">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="save-photos nav-link" href="/save">Save Photos</a>
                     </li>
                     <!-- required bootstrap js -->
                     <button type="button" name="commit" class="btn-login-register btn-sm text-white" data-toggle="modal" data-target="#login">
@@ -33,7 +36,7 @@
                     </button>
                 </ul>
                 <!-- aqui se agregara el menu del usuario -->
-                <div class="btn-group align-items-center my-2">
+                <div class="btn-group align-items-center my-2" hidden>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Welcome <p class="usuario"></p> </a>
                         <a class="dropdown-item btnexit" href="#">Exit</a>
@@ -42,7 +45,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <button type="button" class="btn-profile">
-                        <img class="border border-white" src="https://img.icons8.com/officel/50/000000/user.png" alt="" height="50px" width="50px">
+                        <img class="border border-white avatar-user" src="" alt="" height="50px" width="50px">
                     </button>
                 </div>
                 <div class="col-2"></div>
@@ -92,10 +95,10 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
-                    <form class="modal-body">
+                    <form class="modal-body mt-0" method="POST" action="/upload" enctype="multipart/form-data">
                         <div class="alert p-0">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">
                                     <i class="fa fa-user"></i>
@@ -103,7 +106,7 @@
                             </div>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">
                                     <i class="fa fa-envelope"></i>
@@ -111,7 +114,7 @@
                             </div>
                             <input type="email" class="form-control" name="email" id="email-register" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" autocomplete="off" required>
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">
                                     <i class="fa fa-lock"></i>
@@ -119,7 +122,7 @@
                             </div>
                             <input type="password" name="password" id="password-register" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" autocomplete="off">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">
                                     <i class="fa fa-lock"></i>
@@ -127,11 +130,11 @@
                             </div>
                             <input type="password" name="passwordconfirm" id="password-confirm-register" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1" autocomplete="off">
                         </div>
-                        <div class="custom-file mb-3">
-                            <input type="file" class="custom-file-input file-image" id="customFile">
+                        <div class="custom-file mb-1">
+                            <input type="file" name="avatar" class="custom-file-input file-image" id="customFile">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
-                        <div class="row justify-content-center avatar-preview mb-3">
+                        <div class="row justify-content-center avatar-preview my-1">
                             <img src="" alt="">
                         </div>
                         <input type="submit" name="commit" class="btn btn-primary btn-lg btn-block btn-register" value="Signup">
@@ -214,16 +217,18 @@
             </a>
         </div>
     </div>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/efect-parallax.js"></script>
+    <script src="/js/typed.js"></script>
+    <script src="/js/efect-typed.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="/js/previewmage.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/typed.js"></script>
-    <script src="/js/index.js"></script>
-    <script src="/js/efect-typed.js"></script>
-    <script src="/js/efect-parallax.js"></script>
-    <script src="/js/fuctions.js"></script>
 </body>
 
 </html>

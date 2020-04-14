@@ -34,69 +34,21 @@ const viewStorage = () => {
     if (correoValidation()) {
         const data = JSON.parse(localStorage.getItem(correoValidation()));
         usuario.textContent = data.name;
+        $('.btn-group').removeAttr('hidden');
+        $('.gallery').removeAttr('hidden');
+        $('.save-photos').removeAttr('hidden');
+        $('.avatar-user').attr('src', '/uploads/' + data.avatar);
         $('#user').val(data.name);
     } else {
+        $('.btn-group').attr('hidden', 'true');
+        $('.gallery').attr('hidden', 'true');
+        $('.save-photos').attr('hidden', 'true');
         alert('Aun no esta logueado');
     }
 }
 
 viewStorage();
 
-//TEMPLATES
-
-//template contraseñas no coinciden
-const templatePasswortNoyMatch = () => {
-    return `
-    <div class="alert alert-warning my-2" role="alert">
-        <strong>Passwords do not match</strong>
-    </div>
-    `
-}
-
-//template casilleros vacios
-const templateEmptyLockers = () => {
-    return `
-    <div class="alert alert-warning my-2" role="alert">
-        <strong>Please fill in all the boxes</strong>
-    </div>
-    `
-}
-
-//template registro exitoso
-const templateSuccessfulRegistration = () => {
-    return `
-    <div class="alert alert-success my-2" role="alert">
-        <strong>Successful registration</strong>
-    </div>
-    `
-}
-
-//template logueo exitoso
-const templateSuccessfulLogin = () => {
-    return `
-    <div class="alert alert-success my-2" role="alert">
-        <strong>Successful login</strong>
-    </div>
-    `
-}
-
-//template registro exitoso
-const templateExistingUser = () => {
-    return `
-    <div class="alert alert-danger my-2" role="alert">
-        <strong>The user is already registered please enter another email</strong>
-    </div>
-    `
-}
-
-//template no registrado
-const templateNotRegistered = () => {
-    return `
-    <div class="alert alert-danger my-2" role="alert">
-        <strong>You are not registered</strong>
-    </div>
-    `
-}
 
 //template send chat
 const templateChat = (user, msg) => {
@@ -117,62 +69,6 @@ const parsechatHTML = (chat) => {
     const chattemplate = parseh.parseFromString(chat, 'text/html').querySelector('.toast');
     return chattemplate;
 }
-
-//parse Html
-const parseHTML = (plane) => {
-    const alert = parseh.parseFromString(plane, 'text/html').querySelector('.alert');
-    return alert;
-}
-
-//-----------funciones adicionales---------
-const alertPassword = (alert) => {
-    const passwordNotMath = parseHTML(templatePasswortNoyMatch());
-    alert.appendChild(passwordNotMath);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-}
-
-const alertRegistered = (alert) => {
-    const userRegistered = parseHTML(templateNotRegistered());
-    alert.appendChild(userRegistered);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-}
-
-const alertRegistration = (alert) => {
-    const successful = parseHTML(templateSuccessfulRegistration());
-    alert.appendChild(successful);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-}
-
-const alertLogueoSucce = (alert) => {
-    const successful = parseHTML(templateSuccessfulLogin());
-    alert.appendChild(successful);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-}
-
-const alertExistingUser = (alert) => {
-    const existing = parseHTML(templateExistingUser());
-    alert.appendChild(existing);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-}
-
-const alertBox = (alert) => {
-    const emptyBox = parseHTML(templateEmptyLockers());
-    alert.appendChild(emptyBox);
-    setInterval(() => {
-        alert.innerHTML = null;
-    }, 6000);
-};
-//-------------------------
 
 //recibiendo los datos escuchados por el servidor
 socket.on('send', (data) => {
@@ -197,42 +93,24 @@ const setLocalStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
 
+//sweetAlert
+
+const alertSwee = (text, tipe) => {
+    swal(text, {
+        icon: tipe,
+        button: false,
+        timer: 4000,
+        button: false,
+        closeOnEsc: false,
+        closeOnClickOutside: false,
+    })
+}
 
 //Objeto para las validaciones del loin y el register
 const Validation = {
-    validationRegister: function(email, name, password) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var validation = false;
-                const response = JSON.parse(xhttp.responseText);
-                const users = response.user;
-                for (var i = 0; i < users.length; i++) {
-                    if (users[i].email == email) {
-                        validation = true;
-                        break;
-                    }
-                }
-                if (validation) {
-                    alertExistingUser(alert_container);
-                } else {
-                    clearStorage();
-                    const datos = { name, email, password }
-                    socket.emit('register-recived', datos);
-                    setLocalStorage(datos.email, { email: datos.email, name: datos.name });
-                    alertRegistration(alert_container);
-                    clearBoxRegister();
-                    usuario.textContent = datos.name;
-                    $('#user').val(datos.name);
-                }
-            }
-        };
-        xhttp.open("GET", "/db/user.json", true);
-        xhttp.send();
-    },
     validationLogin: function(email, password) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = async function() {
             if (this.readyState == 4 && this.status == 200) {
                 var validation = false;
                 const response = JSON.parse(xhttp.responseText);
@@ -240,19 +118,24 @@ const Validation = {
                 for (var i = 0; i < users.length; i++) {
                     if (users[i].email == email && users[i].password == password) {
                         validation = true;
-                        datos = { email: users[i].email, name: users[i].name };
+                        datos = { email: users[i].email, name: users[i].name, avatar: users[i].avatar };
                         break;
                     }
                 }
                 if (validation) {
                     clearStorage();
                     setLocalStorage(datos.email, datos);
-                    alertLogueoSucce(alert_login);
                     clearBoxLogin();
+                    $('.btn-group').removeAttr('hidden');
+                    $('.gallery').removeAttr('hidden');
+                    $('.save-photos').removeAttr('hidden');
+                    $('.avatar-user').attr('src', '/uploads/' + datos.avatar);
                     usuario.textContent = datos.name;
                     $('#user').val(datos.name);
+                    await alertSwee('INICIO DE SESION EXITOSO', 'success');
+                    $('.close').trigger('click');
                 } else {
-                    alertRegistered(alert_login)
+                    await alertSwee('NO ESTA REGISTRADO', 'error');
                 }
             }
         };
@@ -273,38 +156,37 @@ $(function() {
             $('#texto').val('');
         }
     });
-    //boton de registro mediante socket
-    $('.btn-register').click(function(e) {
-        e.preventDefault();
-        alert_container.innerHTML = null;
-        var name = $('#name').val();
-        var email_register = $('#email-register').val();
-        var password_register = $('#password-register').val();
-        var password_confirm_register = $('#password-confirm-register').val();
-        if (name != "" && email_register != "" && password_register != "" && password_confirm_register != "") {
-            if (password_register === password_confirm_register) {
-                Validation.validationRegister(email_register, name, password_register);
-            } else {
-                alertPassword(alert_container);
-            }
-        } else {
-            alertBox(alert_container);
-        }
-    });
 
-    $('.btn-login').click(function(e) {
+    $('.btn-login').click(async function(e) {
         e.preventDefault();
         var email = $('#login-email').val();
         var password = $('#login-password').val();
         if (email != "" && password != "") {
-            Validation.validationLogin(email, password);
+            await Validation.validationLogin(email, password);
         } else {
-            alertBox(alert_login);
+            await alertSwee('CAJAS VACIAS', 'warning');
         }
     });
 
-    $('.btnexit').click(function() {
-        clearStorage();
-        location.reload();
+    $('.btnexit').click(async function(e) {
+        e.preventDefault();
+        await swal({
+                title: "SEGURO DE SALIR?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then(async function(exit) {
+                if (exit) {
+                    $('.btn-group').attr('hidden', 'true');
+                    clearStorage();
+                    await alertSwee('SESSION FINALIZADA', 'error')
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    await alertSwee('CERRAR SESION CANCELADA', 'success');
+                }
+            });
     });
 });

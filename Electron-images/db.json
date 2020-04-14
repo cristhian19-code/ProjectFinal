@@ -1,3 +1,44 @@
 {
-    "user": []
+  "user": [
+    {
+      "email": "cristhianprozqwrty@gmail.com",
+      "name": "cristhian",
+      "password": "cristhian",
+      "date": "2000-12-12",
+      "year": "23",
+      "datos": []
+    },
+    {
+      "email": "asdasd",
+      "name": "fasfsa",
+      "password": "123",
+      "date": "2000-12-12",
+      "year": "23",
+      "datos": []
+    },
+    {
+      "email": "asdadad",
+      "name": "asdadad",
+      "password": "12",
+      "date": "2000-12-12",
+      "year": "12",
+      "datos": []
+    },
+    {
+      "email": "dsfadsa",
+      "name": "afsagds",
+      "password": "12",
+      "date": "2009-12-12",
+      "year": "12",
+      "datos": []
+    },
+    {
+      "email": "asdadas",
+      "name": "sdad",
+      "password": "12",
+      "date": "1222-12-12",
+      "year": "12",
+      "datos": []
+    }
+  ]
 }
