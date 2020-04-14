@@ -79,7 +79,6 @@ router.post('/saveImg', upload, async(req, res) => {
         const user = await getConnection().get('user').value();
         await fs.writeFileSync(path.join(__dirname, '../public/db/user.json'), JSON.stringify({ user }), 'utf-8');
         const images = getConnection().get('user').find({ email: email }).get('images').value();
-        res.render('listImg', { images });
     }
     res.redirect('/save');
 });
