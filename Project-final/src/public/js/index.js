@@ -141,7 +141,7 @@ const Validation = {
         };
         xhttp.open("GET", "/db/user.json", true);
         xhttp.send();
-    }
+    },
 }
 
 //ejecutar al iniciar
@@ -188,5 +188,37 @@ $(function() {
                     await alertSwee('CERRAR SESION CANCELADA', 'success');
                 }
             });
+    });
+
+    $('#email-register').keyup(function(e) {
+        const path = /@/;
+        if (path.test(e.target.value)) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = async function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var validation = false;
+                    const response = JSON.parse(xhttp.responseText);
+                    const users = response.user;
+                    for (var i = 0; i < users.length; i++) {
+                        if (users[i].email == e.target.value) {
+                            validation = true;
+                            break;
+                        }
+                    }
+                    if (validation) {
+                        $('#email-register').removeClass('btn btn-outline-success');
+                        $('#email-register').addClass('btn btn-outline-danger');
+                    } else {
+                        $('#email-register').removeClass('btn btn-outline-danger');
+                        $('#email-register').addClass('btn btn-outline-success');
+                    }
+                }
+            };
+            xhttp.open("GET", "/db/user.json", true);
+            xhttp.send();
+        } else {
+            $('#email-register').removeClass('btn btn-outline-success');
+            $('#email-register').addClass('btn btn-outline-danger');
+        }
     });
 });
