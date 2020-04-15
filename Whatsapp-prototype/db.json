@@ -1,27 +1,9 @@
 {
-  "user": [
-    {
-      "id": "8d1303eb-b6c0-47cd-b749-e367881b6315",
-      "user": "cristhian99",
-      "username": "cristhianqwerty@gmail.com",
-      "password": "cristhianqwerty"
-    }
-  ],
-  "chat": [
-    {
-      "user": "cristhian99",
-      "text": "hola que tal",
-      "time": "6:05 AM"
-    },
-    {
-      "user": "cristhian99",
-      "text": "hola que tal",
-      "time": "6:07 AM"
-    },
-    {
-      "user": "cristhian99",
-      "text": "hola brother como estas :v",
-      "time": "6:07 AM"
-    }
-  ]
+    "user": [{
+        "id": "8d1303eb-b6c0-47cd-b749-e367881b6315",
+        "user": "cristhian99",
+        "username": "cristhianqwerty@gmail.com",
+        "password": "cristhianqwerty"
+    }],
+    "chat": []
 }
