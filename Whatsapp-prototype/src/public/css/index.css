@@ -1,0 +1,21 @@
+html,
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%
+}
+
+body {
+    background: linear-gradient(to bottom, #F0B27A, #34495E);
+}
+
+.container {
+    height: 100%;
+}
+
+.form {
+    color: black;
+    background: white;
+    height: 80%;
+    border-radius: 2rem;
+}

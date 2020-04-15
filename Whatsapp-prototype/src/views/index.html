@@ -5,22 +5,26 @@
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container">
-        <form action="/login" method="POST">
-            <input type="email" name="username" id="email" class="form-control" placeholder="Email">
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-            <input type="submit" value="Send" class="btn btn-outline-success">
+    <div class="container d-flex justify-content-center align-items-center">
+        <form action="/login" method="POST" class="form col-8 col-md-4 p-5 shadow-lg">
+            <p class="display-4 text-center text-black my-4">Login</p>
+            <div class="align-self-center mt-5 pt-3">
+                <input type="email" name="username" id="email" class="form-control my-3" placeholder="Email" autocomplete="off">
+                <input type="password" name="password" id="password" class="form-control my-4" placeholder="Password">
+            </div>
+            <div class="d-flex justify-content-between mt-5 pt-5">
+                <input type="submit" value="Send" class="btn btn-outline-success">
+                <a href="#" class="text-primary" data-toggle="modal" data-target="#exampleModalCentered">
+                    Register
+                </a>
+            </div>
         </form>
-        <a href="#" data-toggle="modal" data-target="#exampleModalCentered">
-            Register
-        </a>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
