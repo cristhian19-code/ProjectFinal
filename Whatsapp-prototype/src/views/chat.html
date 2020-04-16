@@ -10,7 +10,10 @@
 </head>
 
 <body class="d-flex justify-content-center align-items-center">
-    <form class="d-block pt-4 justify-content-center form col-8 col-xs-9 col-md-8 col-lg-4 align-items-center form border border-black shadow-lg bg-light" align="center">
+    <form class="d-block pt-3 justify-content-center form col-8 col-xs-9 col-md-8 col-lg-4 align-items-center form border border-black shadow-lg bg-light" align="center">
+        <div class="container-avatar">
+            <img src="/uploads/{{Chat.avatar}}" alt="" class="rounded-circle mb-1" height="80px" width="80px">
+        </div>
         <div class="container-chat col-12" align="center">
             {% for chat in Chat.chat%}
             <div class="row toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
@@ -24,10 +27,10 @@
             </div>
             {% endfor %}
         </div>
-        <div class="form-group">
+        <div class="form-group container-inputs mt-3">
             <input id="user" class="form-control" value="{{Chat.user}}" type="text" name="user" hidden>
             <input id="text" class="form-control col-12" type="text" name="text" placeholder="Escriba . . . . . " autocomplete="off">
-            <a href="#final" type="submit" class="btn btn-outline-success col-12">Send</a>
+            <a href="#" type="submit" class="btn btn-outline-success col-12">Send</a>
         </div>
     </form>
     <script src="/jquery-3.5.0.min.js "></script>

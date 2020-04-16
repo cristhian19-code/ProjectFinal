@@ -1,9 +1,4 @@
 {
-    "user": [{
-        "id": "8d1303eb-b6c0-47cd-b749-e367881b6315",
-        "user": "cristhian99",
-        "username": "cristhianqwerty@gmail.com",
-        "password": "cristhianqwerty"
-    }],
+    "user": [],
     "chat": []
 }

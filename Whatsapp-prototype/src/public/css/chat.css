@@ -7,17 +7,25 @@ html {
 }
 
 .form {
-    height: 90%;
-}
-
-.container-chat {
-    height: 80%;
-    scroll-behavior: smooth;
-    overflow-y: auto;
+    height: 95%;
 }
 
 .form {
     border-radius: 2rem;
+}
+
+.container-chat {
+    height: 65%;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.container-avatar {
+    height: 14%;
+}
+
+.container-inputs {
+    height: 10%;
 }
 
 .container-chat::-webkit-scrollbar {
