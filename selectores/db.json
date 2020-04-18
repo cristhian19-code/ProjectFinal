@@ -1,0 +1,123 @@
+{
+  "user": [
+    {
+      "user": "cristhianprozqwerty@gmail.com",
+      "friends": [
+        {
+          "friend": "cristhian.aponte.g@gmail.com",
+          "chat": [
+            {
+              "amigo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ?? "
+            },
+            {
+              "amigo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ?? "
+            },
+            {
+              "amigo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ??"
+            },
+            {
+              "amigo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ??"
+            },
+            {
+              "yo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola manito en que andas ??"
+            },
+            {
+              "yo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brother como estas ?"
+            },
+            {
+              "yo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brothe n que andas ??"
+            },
+            {
+              "yo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brother"
+            }
+          ]
+        },
+        {
+          "friend": "cristhian@gmail.com",
+          "chat": [
+            {
+              "amigo": "cristhian@gmail.com",
+              "texto": "hola manito como estas ?? :\"V"
+            },
+            {
+              "yo": "cristhianprozqwerty@gmail.com",
+              "texto": "bien mano y tu ??"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "user": "cristhian.aponte.g@gmail.com",
+      "friends": [
+        {
+          "friend": "cristhianprozqwerty@gmail.com",
+          "chat": [
+            {
+              "yo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ?? "
+            },
+            {
+              "yo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ?? "
+            },
+            {
+              "yo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ??"
+            },
+            {
+              "yo": "cristhian.aponte.g@gmail.com",
+              "texto": "hola mano como estas ??"
+            },
+            {
+              "amigo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola manito en que andas ??"
+            },
+            {
+              "amigo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brother como estas ?"
+            },
+            {
+              "amigo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brothe n que andas ??"
+            },
+            {
+              "amigo": "cristhianprozqwerty@gmail.com",
+              "texto": "hola brother"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "user": "cristhian@gmail.com",
+      "friends": [
+        {
+          "friend": "cristhianprozqwerty@gmail.com",
+          "chat": [
+            {
+              "yo": "cristhian@gmail.com",
+              "texto": "hola manito como estas ?? :\"V"
+            },
+            {
+              "amigo": "cristhianprozqwerty@gmail.com",
+              "texto": "bien mano y tu ??"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "user": "cristhian.aponte.g@@gmail.com",
+      "friends": []
+    }
+  ]
+}
