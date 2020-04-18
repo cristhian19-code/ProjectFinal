@@ -3,16 +3,23 @@ const container_chat = document.querySelector('.container-chat');
 const container_friends = document.querySelector('.container-friends');
 
 //socket de los chats
-socket.on('send', (data) => {
+socket.on('emisor', (data) => {
+    const container = document.getElementById(`${data.recept}`);
     const p = document.createElement('p');
-    p.className = 'text-danger';
-    p.textContent = `${data.email}: ${data.text}`;
-    const container_receptor = document.getElementById(`${data.recept}`);
-    const container_emisor = document.getElementById(`${data.email}`);
-    container_receptor.appendChild(p);
-    container_emisor.appendChild(p);
+    p.className = 'text-success';
+    p.textContent = data.email + ': ' + data.text;
+    container.appendChild(p)
 });
 
+socket.on('receptor', (data) => {
+    const container = document.getElementById(`${data.email}`);
+    const p = document.createElement('p');
+    p.className = 'text-primary';
+    p.textContent = data.email + ': ' + data.text;
+    container.appendChild(p)
+});
+
+//llenado de los datos del emisor , receptor y el mensaje
 $('.btn-chat').click(function(e) {
     e.preventDefault();
     var text = $('#text').val();
@@ -26,8 +33,8 @@ $('.btn-chat').click(function(e) {
 //socket de los amigos y logueo
 socket.on('friends', (data) => {
     //obteniendo todos los datos del usuario
-    const chat_friend = data.friends
-        //vaciando todo el contenido dentro del contenedor
+    const chat_friend = data.friends;
+    //vaciando todo el contenido dentro del contenedor
     container_chat.innerHTML = null;
     container_friends.innerHTML = null;
     //recorriendo el chat con los amigos en particulares

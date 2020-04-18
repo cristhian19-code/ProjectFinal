@@ -87,8 +87,10 @@ module.exports = (io) => {
                 }).write();
             }
             var recept_id = usuarios[data.recept];
-            io.to(recept_id).emit('send', data);
-            io.to(socket.id).emit('send', data);
+            //receptor
+            io.to(recept_id).emit('receptor', data);
+            //emisor
+            io.to(socket.id).emit('emisor', data);
         })
     })
 }
