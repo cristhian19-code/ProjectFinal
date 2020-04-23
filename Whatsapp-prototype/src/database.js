@@ -6,7 +6,7 @@ let db;
 
 const createConnection = async() => {
     db = await low(adapter);
-    db.defaults({ user: [], chat: [] }).write();
+    db.defaults({ user: []}).write();
 }
 
 const getConnection = () => db;

@@ -1,4 +1,12 @@
 {
-    "user": [],
-    "chat": []
+  "user": [
+    {
+      "id": "0fe4727f-92de-4829-83be-973b7642092b",
+      "avatar": "a32df4b1-544c-4cf8-ac04-7a86ca2266ad.jpg",
+      "user": "cristhianqwert12",
+      "username": "cristhian@gmail.com",
+      "password": "cristhian",
+      "friends": []
+    }
+  ]
 }

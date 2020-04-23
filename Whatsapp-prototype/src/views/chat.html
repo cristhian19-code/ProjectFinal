@@ -7,38 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/chat.css">
-</head>
+    
+  </head>
 
 <body class="d-flex justify-content-center align-items-center">
-    <form class="d-block pt-3 justify-content-center form col-8 col-xs-9 col-md-8 col-lg-4 align-items-center form border border-black shadow-lg bg-light" align="center">
+    <div class="d-column align-self-center justify-self-center container-fri-add mt-2 mr-2" align="center">
+      <div class="container-friends">
+        {% for friend in Chat.friends %} 
+          <div class="d-flex cont-friend" align="center">
+            <img src="/uploads/{{friend.avatar}}" class="rounded-circle avatar-friend" alt="" height="80px" width="80px">
+            <a href="#" class="text-dark font-italic btn-friend" id="{{friend.email}}">{{friend.name}}</a>
+          </div>
+        {% endfor %}
+      </div>  
+      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalCentered">
+        Add Friend
+      </button>
+    </div>
+    <form class="d-block pt-3 justify-content-center form col-8 col-xs-7 col-md-5 col-lg-4 align-items-center form border border-black shadow-lg bg-light" align="center">
         <div class="container-avatar">
             <img src="/uploads/{{Chat.avatar}}" alt="" class="rounded-circle mb-1" height="80px" width="80px">
         </div>
-        <div class="container-chat col-12" align="center">
-            {% for chat in Chat.chat%}
-            <div class="row toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="mr-auto">{{chat.user}}</strong>
-                    <small>{{chat.time}}</small>
-                </div>
-                <div class="toast-body">
-                    {{chat.text}}
-                </div>
-            </div>
-            {% endfor %}
+
+        <div class="container-chat mt-2 col-12" align="center">
         </div>
-        <div class="form-group container-inputs mt-3">
-            <input id="user" class="form-control" value="{{Chat.user}}" type="text" name="user" hidden>
+        <!-- formulario para el envio delos mensajes del emisor -->
+        <form class="form-group container-inputs mt-3">
+            <input id="receptor" class="form-control" type="email" name="receptor" value="" placeholder="receptor" hidden>
+            <input id="user" class="form-control" value="{{Chat.username}}" type="text" name="username" hidden>
+            <input id="name" class="form-control" value="{{Chat.user}}" type="text" name="user" hidden>
             <input id="text" class="form-control col-12" type="text" name="text" placeholder="Escriba . . . . . " autocomplete="off">
-            <a href="#" type="submit" class="btn btn-outline-success col-12">Send</a>
-        </div>
+            <a href="#" type="submit" class="btn btn-outline-success col-12 btn-chat">Send</a>
+        </form>
     </form>
-    <script src="/jquery-3.5.0.min.js "></script>
+
+    <div class="modal fade" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenteredLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" align="center">
+              <input type="email" name="email" id="add-friend" class="form-control" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success btn-add-friend">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/jquery-3.5.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/socket.io/socket.io.js "></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="/index.js "></script>
+    <script src="/js/efects.js "></script>
     <script>
         $('.toast').toast();
     </script>

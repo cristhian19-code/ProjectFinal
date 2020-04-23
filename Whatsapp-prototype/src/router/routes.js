@@ -62,8 +62,14 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-router.get('/', (req, res) => {
-    res.render('index');
+router.get('/',(req, res, next) => {
+    if (req.isAuthenticated()) { //verificando si se logue el usuario
+        next();
+    } else {
+        res.render('index');
+    }
+},(req, res) => {
+    res.redirect('/chat');
 });
 
 //ruta protegida
@@ -74,12 +80,14 @@ router.get('/chat', (req, res, next) => {
         res.redirect('/');
     }
 }, (req, res) => {
-    const datos = getConnection().get('user').find({ username: email }).value();
-    const chat = getConnection().get('chat').value();
+    const datos = getConnection().get('user').find({ username: email }).value()
+    const friends = getConnection().get('user').find({username : datos.username}).get('friends').value();
+    const array_friends = friends.map(friend=>friend);
     const Chat = {
+        username:datos.username,
         user: datos.user,
         avatar: datos.avatar,
-        chat
+        friends:array_friends
     }
     res.render('chat', { Chat });
 });
@@ -94,7 +102,8 @@ router.post('/register', upload, (req, res) => {
             avatar: url,
             user,
             username, //username == email
-            password
+            password,
+            friends:[]
         }
         getConnection().get('user').push(newData).write();
     }

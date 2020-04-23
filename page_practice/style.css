@@ -1,0 +1,21 @@
+#carouselFadeExampleIndicators {
+    position: absolute;
+    width: 100%;
+}
+
+#carouselFadeExampleIndicators img {
+    background-attachment: fixed;
+    height: 607px;
+}
+
+@media(max-width:680px) {
+    #carouselFadeExampleIndicators img {
+        height: 20rem;
+    }
+}
+
+@media(max-width:450px) {
+    #carouselFadeExampleIndicators img {
+        height: 15rem;
+    }
+}
