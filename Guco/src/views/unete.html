@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GUCO</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/unete.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="css/heading.css">
+    <link rel="stylesheet" href="css/body.css">
+</head>
+
+<body class="container-fluid">
+    <nav class="row navbar navbar-expand-lg bg-info py-2" id="mainNav">
+        <a class="navbar-brand js-scroll-trigger" href="/">GUCO</a>
+        <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-light text-black rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="option-link my-3 px-0 px-lg-3 rounded" href="/unete">Unete</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="option-link my-3 px-0 px-lg-3 rounded" href="#">Comentarios</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Portada -->
+    <section class="row justify-content-center" id="portada">
+        <form action="/unete" method="post" class="col-11 col-md-7 col-lg-6 col-xl-5 my-5">
+            <div class="form-group">
+                <label for="">Nombre y Apellido*</label>
+                <input type="text" name="nombre_completo" id="nombre_completo" class="form-control" autocomplete="off" requiredinformacion>
+            </div>
+            <div class="form-group">
+                <label for="">Nombre de Empresa*</label>
+                <input type="text" name="nombre_empresa" id="nombre_empresa" class="form-control" autocomplete="off" requiredinformacion>
+            </div>
+            <div class="form-group">
+                <label for="">Telefono/Celular*</label>
+                <input type="number" name="telefono" id="telefono" class="form-control" autocomplete="off" requiredinformacion>
+            </div>
+            <div class="form-group">
+                <label for="">Correo Electronico*</label>
+                <input type="email" name="email" id="email" class="form-control" autocomplete="off" requiredinformacion>
+            </div>
+            <div class="form-group">
+                <label for="">Acerca del producto*</label>
+                <p class="text-black-50 font-italic">Cuéntanos un poco más sobre el producto que enviarás. Por favor, sé específico, detalle forma, tamaño y peso.</p>
+                <textarea name="description" id="description" rows="3" class="form-control" requiredinformacion></textarea>
+            </div>
+            <div class="form-group enterado">
+                <label for="">En que medio te enteraste de GUCO?*</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" value="facebook" name="informacion" class="custom-control-input ">
+                    <label class="custom-control-label" for="customRadio1">Facebook</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" value="instagram" name="informacion" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio2">Instagram</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio3" value="amigo" name="informacion" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio3">Por un amigo</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio4" value="google" name="informacion" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio4">Por anuncios en Google</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio5" value="moto   rizado" name="informacion" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio5">Uno de nuestros motorizados</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio6" value="otros" name="informacion" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio6">Otros</label>
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <button type="submit" class="btn btn-outline-info">Enviar</button>
+            </div>
+        </form>
+    </section>
+    <!-- Contact Us -->
+    <!-- Copyright Section-->
+    <section class="copyright py-4 text-center text-white row bg-info">
+        <div class="container"><small class="pre-wrap">Copyright © GUCO 2020</small></div>
+    </section>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed row"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/efect.js"></script>
+</body>
+
+</html>
